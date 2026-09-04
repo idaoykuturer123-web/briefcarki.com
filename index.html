@@ -6,17 +6,15 @@
     <title>Brief Çarkı – Editorial Design Challenge</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Pastel Butter Yellow Arka Plan */
-            --bg: #fffbe6;
+            --bg: #fffbe6; /* Pastel Butter Yellow */
             --card: #ffffff;
-            --ink: #2c2a29;
-            --muted: #787571;
-            --line: #f0ebd5;
-            --accent-soft: #f7f0cf;
-            --primary: #3a3835;
+            --ink: #1a1a1a;
+            --muted: #737373;
+            --line: #e5e0d8;
+            --accent: #2c3e50;
         }
 
         * {
@@ -35,61 +33,59 @@
             min-height: 100vh;
             align-items: center;
             justify-content: space-between;
-            padding: 30px 20px;
+            padding: 20px;
         }
 
         .container {
-            max-width: 580px;
+            max-width: 600px;
             width: 100%;
             margin: auto;
             text-align: center;
         }
 
         header {
-            margin-bottom: 28px;
+            margin-bottom: 30px;
         }
 
         h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            font-style: normal;
             letter-spacing: -0.5px;
             margin-bottom: 8px;
-            color: var(--primary);
-            font-style: normal;
         }
 
         p.subtitle {
             color: var(--muted);
             font-size: 0.95rem;
-            font-weight: 400;
+            font-weight: 300;
             font-style: normal;
         }
 
         .card {
             background: var(--card);
             border: 1px solid var(--line);
-            border-radius: 20px;
-            padding: 32px;
-            box-shadow: 0 10px 30px rgba(218, 207, 155, 0.15);
-            margin-bottom: 20px;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            margin-bottom: 25px;
         }
 
         .level-selector {
             display: flex;
-            gap: 8px;
+            gap: 10px;
             justify-content: center;
-            margin-bottom: 28px;
+            margin-bottom: 25px;
             flex-wrap: wrap;
         }
 
         .level-btn {
-            background: var(--bg);
+            background: transparent;
             border: 1px solid var(--line);
-            color: var(--muted);
-            padding: 8px 18px;
+            padding: 8px 16px;
             border-radius: 20px;
             font-size: 0.85rem;
-            font-weight: 500;
             cursor: pointer;
             transition: all 0.2s ease;
             font-family: inherit;
@@ -97,9 +93,9 @@
         }
 
         .level-btn.active, .level-btn:hover {
-            background: var(--primary);
+            background: var(--ink);
             color: #fff;
-            border-color: var(--primary);
+            border-color: var(--ink);
         }
 
         .brief-output {
@@ -107,17 +103,16 @@
             display: flex;
             flex-direction: column;
             gap: 16px;
-            margin-bottom: 28px;
+            margin-bottom: 25px;
         }
 
         .brief-item {
             border-bottom: 1px dashed var(--line);
-            padding-bottom: 12px;
+            padding-bottom: 10px;
         }
 
         .brief-item:last-child {
             border-bottom: none;
-            padding-bottom: 0;
         }
 
         .label {
@@ -127,47 +122,42 @@
             color: var(--muted);
             margin-bottom: 4px;
             display: block;
-            font-weight: 600;
             font-style: normal;
         }
 
         .value {
-            font-size: 1.05rem;
+            font-size: 1rem;
             font-weight: 500;
-            color: var(--ink);
             font-style: normal;
         }
 
         .spin-btn {
             width: 100%;
-            background: var(--primary);
+            background: var(--ink);
             color: #fff;
             border: none;
             padding: 16px;
-            border-radius: 14px;
+            border-radius: 12px;
             font-size: 1rem;
-            font-weight: 600;
+            font-weight: 500;
             cursor: pointer;
-            transition: transform 0.1s ease, background-color 0.2s ease;
+            transition: opacity 0.2s;
             font-family: inherit;
             font-style: normal;
         }
 
         .spin-btn:hover {
-            background: #232220;
+            opacity: 0.9;
         }
 
-        .spin-btn:active {
-            transform: scale(0.99);
-        }
-
-        /* Alt Bilgi & QR Alanı */
+        /* Alt Bilgi / İmza & QR Alanı */
         footer {
             margin-top: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 12px;
+            padding-bottom: 10px;
         }
 
         .studio-tag {
@@ -175,13 +165,13 @@
             font-style: normal;
             font-weight: 600;
             font-size: 0.9rem;
-            color: var(--primary);
+            color: var(--ink);
             letter-spacing: 0.3px;
         }
 
         .qr-code {
-            width: 45px;
-            height: 45px;
+            width: 42px;
+            height: 42px;
             border-radius: 6px;
             border: 1px solid var(--line);
             background-color: #fff;
@@ -228,13 +218,12 @@
                 </div>
             </div>
 
-            <button class="spin-btn" onclick="generateBrief()">Brief Oluştur</button>
+            <button class="spin-btn" onclick="generateBrief()">Brief Oluştur 🎲</button>
         </main>
     </div>
 
     <footer>
         <span class="studio-tag">ida.creative.studio</span>
-        <!-- Instagram Hesabının QR Kodu -->
         <img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://instagram.com/ida.creative.studio" alt="ida.creative.studio Instagram QR">
     </footer>
 
